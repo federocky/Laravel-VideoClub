@@ -175,7 +175,7 @@ class CatalogController extends Controller {
     }
 
     public function getShow($id) {
-        return view('catalog.show', ['pelicula' => $this->arrayPeliculas[$id]]);
+        return view('catalog.show', ['pelicula' => $this->arrayPeliculas[$id], 'id' => $id]);
     }
 
     public function getCreate(){
@@ -183,6 +183,22 @@ class CatalogController extends Controller {
     }
 
     public function getEdit($id){
-        return view('catalog.edit', ['id' => $id]);
-    }
+        return view('catalog.edit', ['pelicula' =>$this->arrayPeliculas[$id]]);
+	}
+	
+	public function validateEdit(){
+
+		request()->validate([
+
+			'title' => 'required',
+			'anio' => 'required|min:3',
+			'director' => 'required',
+			'poster' => 'required',
+			'synopsis' => 'required'
+
+		]);
+
+		return 'Datos validados';
+
+	}
 }

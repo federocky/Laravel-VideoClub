@@ -9,33 +9,38 @@
           </div>
           <div class="card-body" style="padding:30px">
  
-            <form method="POST" action="/">
-            @method('PUT') {{-- //TODO: preguntar si esto esta bien --}}
+            <form method="POST" action="{{ url('/catalog/validarEdit') }}">
+            {{-- @method('PUT') --}} {{-- comento para la validacíon --}}
             @csrf
  
              <div class="form-group">
-                <label for="title">Título</label>
-                <input type="text" name="title" id="title" class="form-control">
+                <label for="title">Título</label> <br>
+                {{ $errors->first('title', ':message')}}
+                <input type="text" name="title" value=" {{$pelicula['title']}} " id="title" class="form-control">
              </div>
  
              <div class="form-group">
-                <label for="anio">Año</label>
-                <input type="text" name="anio" id="anio" class="form-control">
+                <label for="anio">Año</label><br>
+                {!! $errors->first('anio', '<span style="color:red">:message<span>')!!}
+                <input type="text" name="anio" value="{{ old('anio') }}" id="anio" class="form-control">
             </div>
  
              <div class="form-group">
-                <label for="director">Director</label>
-                <input type="text" name="director" id="director" class="form-control">
+                <label for="director">Director</label><br>
+                {{ $errors->first('director', ':message')}}
+                <input type="text" name="director" value="{{$pelicula['director']}}" id="director" class="form-control">
              </div>
  
              <div class="form-group">
-                <label for="poster">URL Poster</label>
-                <input type="text" name="poster" id="director" class="form-control">
+                <label for="poster">URL Poster</label><br>
+                {{ $errors->first('poster', ':message')}}
+                <input type="text" name="poster" value="{{$pelicula['poster']}}" id="poster" class="form-control">
              </div>
  
              <div class="form-group">
-                <label for="synopsis">Resumen</label>
-                <textarea name="synopsis" id="synopsis" class="form-control" rows="3"></textarea>
+                <label for="synopsis">Resumen</label><br>
+                {{ $errors->first('synopsis', ':message')}}
+                <textarea name="synopsis" id="synopsis" placeholder="{{$pelicula['synopsis']}}" class="form-control" rows="3"></textarea>
              </div>
  
              <div class="form-group text-center">

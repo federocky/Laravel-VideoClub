@@ -22,6 +22,7 @@
 
         @else <p>Pelicula disponible</p>
         <button type="button" class="btn btn-primary">Alquilar Pelicula</button>
+        <a class="btn btn-warning text-white" href="{{ url('/catalog/edit/'. $id) }}">Editar Pelicula</a>
         <a class="btn btn-light btn-outline-dark" href="{{ url('/catalog') }}">Volver</a>
 
         @endif

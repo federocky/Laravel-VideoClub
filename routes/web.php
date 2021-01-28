@@ -53,3 +53,5 @@ Route::get('/catalog/edit/{id}', [CatalogController::class, 'getEdit']);
 /* Route::get('/catalog/edit/{id}', function ($id) {
     return view('catalog/edit', ['id' => $id]);
 }); */
+
+Route::post('/catalog/validarEdit', [CatalogController::class, 'validateEdit']);
