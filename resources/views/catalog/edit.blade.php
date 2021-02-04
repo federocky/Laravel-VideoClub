@@ -16,7 +16,7 @@
              <div class="form-group">
                 <label for="title">Título</label> <br>
                 {{ $errors->first('title', ':message')}}
-                <input type="text" name="title" value=" {{$pelicula['title']}} " id="title" class="form-control">
+                <input type="text" name="title" value=" {{$pelicula->title}} " id="title" class="form-control">
              </div>
  
              <div class="form-group">
@@ -28,19 +28,19 @@
              <div class="form-group">
                 <label for="director">Director</label><br>
                 {{ $errors->first('director', ':message')}}
-                <input type="text" name="director" value="{{$pelicula['director']}}" id="director" class="form-control">
+                <input type="text" name="director" value="{{$pelicula->director}}" id="director" class="form-control">
              </div>
  
              <div class="form-group">
                 <label for="poster">URL Poster</label><br>
                 {{ $errors->first('poster', ':message')}}
-                <input type="text" name="poster" value="{{$pelicula['poster']}}" id="poster" class="form-control">
+                <input type="text" name="poster" value="{{$pelicula->poster}}" id="poster" class="form-control">
              </div>
  
              <div class="form-group">
                 <label for="synopsis">Resumen</label><br>
                 {{ $errors->first('synopsis', ':message')}}
-                <textarea name="synopsis" id="synopsis" placeholder="{{$pelicula['synopsis']}}" class="form-control" rows="3"></textarea>
+                <textarea name="synopsis" id="synopsis" placeholder="{{$pelicula->synopsis}}" class="form-control" rows="3"></textarea>
              </div>
  
              <div class="form-group text-center">
